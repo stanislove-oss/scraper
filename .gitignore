@@ -1,0 +1,42 @@
+# --- Python cache & compiled files ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+*.log
+
+# --- Virtual environments ---
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+
+# --- Jupyter Notebook checkpoints ---
+.ipynb_checkpoints/
+
+# --- OS system files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- VSCode / IDE files ---
+.vscode/
+.idea/
+
+# --- Test / coverage reports ---
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Project-specific artifacts ---
+artifacts/
+books_data.txt
+
+# --- Temporary or backup files ---
+*.tmp
+*.bak
+*.swp
