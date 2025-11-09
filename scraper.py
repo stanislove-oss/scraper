@@ -132,10 +132,24 @@ def scrape_books(is_save: bool = False, delay_sec: float = 0.0, max_pages: int =
             time.sleep(delay_sec)
 
     if is_save:
-        with open("books_data.txt", "w", encoding="utf-8") as f:
+        with open("./artifacts/books_data.txt", "w", encoding="utf-8") as f:
             for item in all_books:
                 f.write(str(item) + "\n")
 
     return all_books
 
 
+def job():
+    try:
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Старт сбора…")
+        res = scrape_books(is_save=True, delay_sec=0.0)
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Готово: собрано {len(res)} книг.")
+    except Exception as e:
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Ошибка: {e}")
+
+schedule.every().day.at("19:00").do(job)
+
+if __name__ == '__main__':
+    schedule.run_pending()
+    time.sleep(30)
+    
